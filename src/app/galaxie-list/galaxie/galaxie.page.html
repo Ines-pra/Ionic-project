@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-title class="toolbar"> {{ galaxie.nom }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!modif" style="min-height: 100%;">
+    <!-- J'affiche le détail -->
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <strong *ngIf="(galaxie.active === true)||(galaxie.active === 'true')"> Cette galaxie est toujours active
+          </strong>
+          <strong *ngIf="(galaxie.active === false)||(galaxie.active === 'false')"> Cette galaxie s'est malheureusement
+            éteinte </strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <img [src]="galaxie.picture" class="image">
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-row><strong>Morphologie :</strong> {{ galaxie.morphologie }} </ion-row><br>
+          <ion-row><strong>Morphologie particulière :</strong> {{ galaxie.morphologie_particuliere }} </ion-row><br>
+          <ion-row><strong>Taille :</strong> {{ galaxie.taille }}</ion-row>
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <strong>Description : </strong> <br> {{ galaxie.description }}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button (click)="setModif()" class="btn"> Modifier ou supprimer  &nbsp; <i class="fas fa-long-arrow-alt-right"></i></ion-button>
+  </div>
+
+  <div *ngIf="modif" style="min-height: 100%; margin-bottom: 10%;">
+    <!-- Je peux modifier -->
+    <ion-item >
+      <ion-label position="floating"> <strong>Son nom </strong></ion-label> <br>
+      <ion-input type="text" [(ngModel)]="galaxie.nom"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label position="floating"> <strong>Est-elle toujours active ? </strong></ion-label><br>
+      <!-- <ion-input type="text" [(ngModel)]="galaxie.active" placeholder="True ou false"></ion-input> -->
+      <ion-select [(ngModel)]="galaxie.active" >
+        <ion-select-option value="true">Oui</ion-select-option>
+        <ion-select-option value="false">Non</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> <strong>Sa morphologie </strong></ion-label><br>
+      <ion-input type="text" [(ngModel)]="galaxie.morphologie" ></ion-input>
+      
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> <strong>A-t-elle une morphologie particulière? Si oui, laquelle? </strong></ion-label><br>
+      <ion-input type="text" [(ngModel)]="galaxie.morphologie_particuliere" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> <strong>Sa taille </strong></ion-label><br>
+      <ion-input type="text" [(ngModel)]="galaxie.taille" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> <strong>Rajouter le lien vers une image </strong></ion-label><br>
+      <ion-input type="text" [(ngModel)]="galaxie.picture" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> <strong> Une petite description ? </strong></ion-label><br>
+      <ion-input type="text" [(ngModel)]="galaxie.description" ></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-button (click)="onModif()" class="btn"> Modifier</ion-button>
+      <ion-button (click)="(onDelete(galaxie.id))" class="btn" style="--ion-color-primary:red;"> <i class="fas fa-trash"></i>  </ion-button>
+    </ion-row>
+    
+  </div>
+</ion-content>

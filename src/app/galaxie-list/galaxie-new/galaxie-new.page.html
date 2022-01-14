@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-title class="toolbar"> Nouvelle galaxie </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item >
+    <ion-label position="floating" >Son nom </ion-label> <br>
+    <ion-input type="text" [(ngModel)]="galaxie.nom"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label position="floating">Est-elle toujours active ? </ion-label><br>
+    <ion-input type="text" [(ngModel)]="galaxie.active" placeholder="True ou false"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Sa morphologie </ion-label><br>
+    <ion-input type="text" [(ngModel)]="galaxie.morphologie" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">A-t-elle une morphologie particulière? Si oui, laquelle? </ion-label><br>
+    <ion-input type="text" [(ngModel)]="galaxie.morphologie_particuliere" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Sa taille </ion-label><br>
+    <ion-input type="text" [(ngModel)]="galaxie.taille" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Rajouter le lien vers une image </ion-label><br>
+    <ion-input type="text" [(ngModel)]="galaxie.picture" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> Une petite description ? </ion-label><br>
+    <ion-input type="text" [(ngModel)]="galaxie.description" ></ion-input>
+  </ion-item>
+  <ion-button class="btn" (click)="add()"> Ajouter </ion-button>
+  
+
+</ion-content>
