@@ -1,32 +1,41 @@
-<ion-header style="height: 3%;">
-  <ion-toolbar>
-  <ion-title class="toolbar"> Galaxie</ion-title>
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title class="title"> Galaxie</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div style="background-color: rgba(211, 211, 211, 0.20); min-height: 100%;">
-    <ion-button routerLink="/tab/new" class="btn" style="padding-top: 10px;"> Créer une galaxie &nbsp; <i class="fas fa-long-arrow-alt-right"></i> </ion-button>
-    <h2> Liste des galaxies </h2>
+  <div class="body">
     <ion-grid>
-        <ion-item-group size="12" *ngFor="let galaxie of galaxies">
-          <ion-card class="active" *ngIf="(galaxie.active === true)||(galaxie.active === 'true')" [routerLink]="['/tab/unegalaxie/',galaxie.id]">
-            <ion-item style="height:50%" lines="none">
-              <img [src]="galaxie.picture" [alt]="galaxie.title" class="image">
-            </ion-item>
-            <ion-item lines="none">
-              {{ galaxie.nom }}
-            </ion-item>
-          </ion-card>
-          <ion-card class="nonactive" *ngIf="(galaxie.active === false)||(galaxie.active === 'false')" [routerLink]="['/tab/unegalaxie/',galaxie.id]">
-            <ion-item style="height:50%" lines="none">
-              <img [src]="galaxie.picture" [alt]="galaxie.title" class="image">
-            </ion-item>
-            <ion-item lines="none">
-              {{ galaxie.nom }}
-            </ion-item>
-          </ion-card>
-        </ion-item-group>
+      <ion-button routerLink="/tab/new" class="btn"> Créer une galaxie &nbsp; <i
+          class="fas fa-long-arrow-alt-right"></i> </ion-button>
+      <div style="text-align : center">
+        <h1> Galaxies recensées </h1>
+      </div>
+      <ion-item-group size="12" *ngFor="let galaxie of galaxies">
+        <ion-card class="active" *ngIf="(galaxie.active === true)||(galaxie.active === 'true')"
+          [routerLink]="['/tab/unegalaxie/',galaxie.id]">
+          <ion-item lines="none">
+            <img [src]="galaxie.picture" [alt]="galaxie.title" class="image">
+          </ion-item>
+          <ion-col lines="none" text-center>
+            <div class="nom_galaxy">
+              <span> {{ galaxie.nom }} </span>
+            </div>
+          </ion-col>
+        </ion-card>
+        <ion-card class="nonactive" *ngIf="(galaxie.active === false)||(galaxie.active === 'false')"
+          [routerLink]="['/tab/unegalaxie/',galaxie.id]">
+          <ion-item lines="none">
+            <img [src]="galaxie.picture" [alt]="galaxie.title" class="image">
+          </ion-item>
+          <ion-col lines="none" text-center>
+            <div class="nom_galaxy">
+              <span> {{ galaxie.nom }} </span>
+            </div>
+          </ion-col>
+        </ion-card>
+      </ion-item-group>
     </ion-grid>
   </div>
 </ion-content>

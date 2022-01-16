@@ -25,30 +25,65 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-.toolbar {
-    font-size:x-large; 
-    padding-top:5%;
-    padding-bottom:5%;
+
+.body {
+  background-color: rgba(211, 211, 211, 0.20);
+  min-height: 100%;
 }
+
+.background {
+  --background: url('/assets/images/background.jpg') no-repeat 100% 100%;
+}
+
+.card_menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+.toolbar {
+  --background: black;
+  color: white;
+}
+
+.title {
+  font-size: x-large;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
 .btn {
-    --ion-color-primary: black;
-    // box-shadow: 10px 5px 5px grey;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 5%;
+  --ion-color-primary: black;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5%;
+  padding-top: 10px;
 }
 
 .active {
-    // background-color:blue;
-    box-shadow: 5px 5px 5px rgba(172, 255, 47, 0.253);
+  box-shadow: 5px 5px 5px rgba(172, 255, 47, 0.253);
 }
 
 .nonactive {
-    box-shadow: 5px 5px 5px rgba(255, 0, 0, 0.253);
+  box-shadow: 5px 5px 5px rgba(255, 0, 0, 0.253);
 }
 
-.image{
-    padding: 2%;
-    border-radius : 30px;
+.image {
+  padding: 2%;
+  border-radius: 30px;
 }
 
+.nom_galaxy {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+
+.justify {
+  text-align: justify;
+}
